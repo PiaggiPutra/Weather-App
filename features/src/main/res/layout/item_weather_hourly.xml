@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingHorizontal="@dimen/_20sdp">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_hour_item"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="13:00"
+            android:textColor="@android:color/black"/>
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/iv_icon_weather_hourly"
+            app:layout_constraintTop_toBottomOf="@id/tv_hour_item"
+            app:layout_constraintStart_toStartOf="@id/tv_hour_item"
+            app:layout_constraintEnd_toEndOf="@id/tv_hour_item"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:scaleType="fitXY"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_temp_hourly_item"
+            app:layout_constraintTop_toBottomOf="@id/iv_icon_weather_hourly"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="33\u2103"
+            app:layout_constraintStart_toStartOf="@id/tv_hour_item"
+            app:layout_constraintEnd_toEndOf="@id/tv_hour_item"
+            android:textColor="@android:color/black" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_temp_weather_item"
+            app:layout_constraintTop_toBottomOf="@id/tv_temp_hourly_item"
+            android:layout_marginTop="@dimen/_2sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="Rain"
+            app:layout_constraintStart_toStartOf="@id/tv_hour_item"
+            app:layout_constraintEnd_toEndOf="@id/tv_hour_item"
+            android:textColor="@android:color/black" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
