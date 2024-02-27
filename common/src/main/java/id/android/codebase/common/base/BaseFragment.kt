@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.annotation.LayoutRes
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.WindowCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.WindowInsetsControllerCompat
@@ -96,6 +97,10 @@ abstract class BaseFragment<V : ViewDataBinding, VM : BaseViewModel> : Fragment(
                 WindowInsetsControllerCompat(it.window, binding.root).show(WindowInsetsCompat.Type.systemBars())
             }
         }
+    }
+
+    fun hideActionBar(){
+        (activity as AppCompatActivity?)?.supportActionBar?.hide()
     }
 
     protected fun safeNavigateTo(directions: NavDirections) {

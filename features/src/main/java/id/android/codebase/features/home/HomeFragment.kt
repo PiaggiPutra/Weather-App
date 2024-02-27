@@ -12,7 +12,6 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>() {
     override fun getLayoutResId() = R.layout.fragment_home
 
     override fun main() {
-
+        hideActionBar()
     }
-
 }

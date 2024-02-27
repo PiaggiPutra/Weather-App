@@ -1,8 +1,5 @@
 <resources>
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="home">HOME</string>
-    <string name="login">LOGIN</string>
     <string name="temperature">%d\u2103</string>
     <string name="text_title_hourly">HOURLY</string>
     <string name="text_title_weather">Weather</string>

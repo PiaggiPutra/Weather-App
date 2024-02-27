@@ -24,12 +24,6 @@ class MainFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        checkLoggedIn()
-    }
-
-    private fun checkLoggedIn() {
-        val isLoggedIn = (0..1).random() == 1
-        val flow = if (isLoggedIn) NavigationFlow.HomeFlow else NavigationFlow.LoginFlow
-        navigator?.navigateToFlow(flow)
+        navigator?.navigateToFlow(NavigationFlow.HomeFlow)
     }
 }
