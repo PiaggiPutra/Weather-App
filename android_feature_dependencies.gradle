@@ -1,0 +1,24 @@
+apply plugin: GradlePluginId.ANDROID_LIBRARY
+apply from: '../android_core_dependencies.gradle'
+apply from: '../android_commons.gradle'
+
+dependencies {
+    implementation project(Modules.common)
+
+    implementation project(Modules.repository)
+    implementation project(Modules.navigation)
+
+    /** Koin Dependencies */
+    implementation KoinDependencies.koin
+    implementation KoinDependencies.koinViewodel
+
+    /** Testing Dependencies */
+    androidTestImplementation TestingDependencies.junit
+    androidTestImplementation project(Modules.commonTest)
+    androidTestImplementation TestingDependencies.mockkAndroid
+    androidTestImplementation TestingDependencies.coreTesting
+    testImplementation TestingDependencies.junit
+    testImplementation TestingDependencies.mockk
+    testImplementation TestingDependencies.coreTesting
+    testImplementation project(Modules.commonTest)
+}

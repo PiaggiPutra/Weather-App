@@ -1,0 +1,29 @@
+apply plugin: GradlePluginId.KOTLIN_ANDROID
+
+android {
+    compileSdkVersion AndroidConfig.COMPILE_SDK_VERSION
+    buildToolsVersion AndroidConfig.BUILD_TOOLS_VERSION
+
+    defaultConfig {
+        minSdkVersion AndroidConfig.MIN_SDK_VERSION
+        targetSdkVersion AndroidConfig.TARGET_SDK_VERSION
+        versionCode Releases.VERSION_CODE
+        versionName Releases.VERSION_NAME
+    }
+
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_1_8
+        targetCompatibility = JavaVersion.VERSION_1_8
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled BuildTypeRelease.isMinifyEnabled
+        }
+    }
+
+}
+
+dependencies {
+    implementation KotlinDependencies.kotlin
+}

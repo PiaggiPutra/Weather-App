@@ -1,0 +1,25 @@
+dependencies {
+    /** Kotlin Dependencies */
+    implementation KotlinDependencies.kotlin
+
+    /** Coroutines Dependencies */
+    implementation CoroutinesDependencies.coroutinesAndroid
+    implementation CoroutinesDependencies.coroutinesCore
+
+    /** Android Dependencies */
+    implementation AndroidXSupportDependencies.appcompat
+    implementation AndroidXSupportDependencies.core
+    implementation AndroidXSupportDependencies.constraint
+    implementation AndroidXSupportDependencies.fragment
+
+    /** Lifecycle Dependencies */
+    implementation LifecycleDependencies.lifecycleLivedata
+    implementation LifecycleDependencies.lifecycleProcess
+    implementation LifecycleDependencies.lifecycleRuntime
+    implementation LifecycleDependencies.lifecycleViewModel
+
+    /** Navigation Dependencies */
+    implementation NavigationDependencies.navigationUi
+    implementation NavigationDependencies.navigationFragment
+
+}

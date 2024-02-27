@@ -1,0 +1,12 @@
+include(
+    ":app",
+    ":common",
+    ":data:remote",
+    ":data:model",
+    ":data:local",
+    ":data:repository",
+    ":common_test",
+    ":navigation",
+    ":features",
+    ":domain"
+)

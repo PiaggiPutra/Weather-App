@@ -1,0 +1,5 @@
+dependencies {
+    androidTestImplementation TestingDependencies.coreTesting
+    androidTestImplementation TestingDependencies.junit
+    androidTestImplementation TestingDependencies.mockk
+}

@@ -1,0 +1,16 @@
+<?xml version="1.0" ?>
+<SmellBaseline>
+  <ManuallySuppressedIssues></ManuallySuppressedIssues>
+  <CurrentIssues>
+    <ID>ExpressionBodySyntax:LivenessFragment.kt$LivenessFragment.Companion$return LivenessFragment()</ID>
+    <ID>MagicNumber:LivenessActivity.kt$LivenessActivity$255</ID>
+    <ID>MagicNumber:LivenessActivity.kt$LivenessActivity$255f</ID>
+    <ID>MagicNumber:LivenessFragment.kt$LivenessFragment$1000</ID>
+    <ID>NestedBlockDepth:LivenessFragment.kt$LivenessFragment$ override fun onDetectionFailed(failedType: DetectionFailedType, detectionType: DetectionType)</ID>
+    <ID>NewLineAtEndOfFile:LivenessActivity.kt$ai.advance.liveness.sdk.activity.LivenessActivity.kt</ID>
+    <ID>NewLineAtEndOfFile:LivenessFragment.kt$ai.advance.liveness.sdk.fragment.LivenessFragment.kt</ID>
+    <ID>SpacingBetweenPackageAndImports:LivenessFragment.kt$ </ID>
+    <ID>TooManyFunctions:LivenessFragment.kt$LivenessFragment : FragmentDetectorInitCallbackLivenessCallback</ID>
+    <ID>WildcardImport:LivenessFragment.kt$import ai.advance.liveness.lib.Detector.*</ID>
+  </CurrentIssues>
+</SmellBaseline>
