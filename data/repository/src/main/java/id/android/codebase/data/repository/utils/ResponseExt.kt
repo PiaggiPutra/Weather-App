@@ -1,5 +1,6 @@
 package id.android.codebase.data.repository.utils
 
+import id.android.codebase.domain.utils.Resource
 import kotlinx.coroutines.flow.flow
 import retrofit2.Response
 

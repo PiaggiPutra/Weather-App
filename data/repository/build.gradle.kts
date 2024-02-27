@@ -29,4 +29,7 @@ dependencies {
     testImplementation(TestingDependencies.coreTesting)
     testImplementation(TestingDependencies.coroutinesTest)
     testImplementation(project(Modules.commonTest))
+
+    /** Domain Module */
+    implementation(project(Modules.domain))
 }

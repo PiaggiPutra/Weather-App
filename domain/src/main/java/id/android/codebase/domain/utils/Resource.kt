@@ -1,4 +1,4 @@
-package id.android.codebase.data.repository.utils
+package id.android.codebase.domain.utils
 
 data class Resource<out T>(val status: Status, val data: T?, val error: Throwable?) {
     companion object {

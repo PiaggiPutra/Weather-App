@@ -1,6 +1,5 @@
 package id.android.codebase.data.remote.base
 
-import id.android.codebase.data.remote.ExampleService
 import id.android.codebase.di.createRemoteModule
 import okhttp3.mockwebserver.MockResponse
 import okhttp3.mockwebserver.MockWebServer

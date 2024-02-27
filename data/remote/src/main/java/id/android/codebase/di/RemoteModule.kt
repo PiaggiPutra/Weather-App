@@ -1,7 +1,7 @@
 package id.android.codebase.di
 
-import id.android.codebase.data.remote.ExampleDatasource
-import id.android.codebase.data.remote.ExampleService
+import id.android.codebase.data.remote.ApiDataSource
+import id.android.codebase.data.remote.ApiService
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -33,7 +33,7 @@ fun createRemoteModule(baseUrl: String) = module {
             .build()
     }
 
-    factory { get<Retrofit>().create(ExampleService::class.java) }
+    factory { ApiDataSource(get()) }
 
-    factory { ExampleDatasource(get()) }
+    factory { get<Retrofit>().create(ApiService::class.java) }
 }
