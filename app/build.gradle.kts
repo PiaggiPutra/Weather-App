@@ -22,10 +22,12 @@ android {
             isMinifyEnabled = BuildTypeRelease.isMinifyEnabled
             isShrinkResources = BuildTypeRelease.isShrinkResources
             proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
+            buildConfigField("String", "BASE_URL", "\"https://api.openweathermap.org/data/2.5/\"")
         }
         getByName(BuildType.DEBUG) {
 //            signingConfig = signingConfigs.getByName("defaultSigning")
             isMinifyEnabled = BuildTypeDebug.isMinifyEnabled
+            buildConfigField("String", "BASE_URL", "\"https://api.openweathermap.org/data/2.5/\"")
         }
     }
 
