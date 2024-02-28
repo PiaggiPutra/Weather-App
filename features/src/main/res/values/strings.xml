@@ -5,4 +5,6 @@
     <string name="text_title_weather">Weather</string>
     <string name="title_other_cities">Other Cities</string>
     <string name="title_weather_app">Weather App</string>
+    <string name="text_permission_granted">Permission Granted</string>
+    <string name="text_permission_denied">Permission Denied</string>
 </resources>

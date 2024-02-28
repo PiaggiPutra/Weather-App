@@ -19,4 +19,8 @@ object Keys {
         return EnvKeys.baseApiUrl()
     }
 
+    const val BASE_URL_IMAGE = "http://openweathermap.org/img/wn/"
+
+    const val FORMAT_IMAGE = "@2x.png"
+
 }

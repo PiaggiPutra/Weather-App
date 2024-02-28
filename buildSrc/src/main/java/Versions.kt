@@ -23,4 +23,7 @@ object Versions {
     const val classpath_detekt = "1.18.1"
     const val classpath_koin = "2.2.3"
     const val classpath_gradle = "7.0.3"
+
+    const val gms = "19.0.0"
+
 }

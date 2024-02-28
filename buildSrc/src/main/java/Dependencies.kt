@@ -64,6 +64,7 @@ object UtilsDependencies {
     const val sdp = "com.intuit.sdp:sdp-android:${Versions.sdpAndroid}"
     const val ssp = "com.intuit.ssp:ssp-android:${Versions.sdpAndroid}"
     const val detektFormatting = "io.gitlab.arturbosch.detekt:detekt-formatting:${Versions.classpath_detekt}"
+    const val maps = "com.google.android.gms:play-services-location:${Versions.gms}"
 }
 
 object ClasspathDependencies {

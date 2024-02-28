@@ -22,8 +22,8 @@
             app:layout_constraintTop_toBottomOf="@id/tv_hour_item"
             app:layout_constraintStart_toStartOf="@id/tv_hour_item"
             app:layout_constraintEnd_toEndOf="@id/tv_hour_item"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="@dimen/_50sdp"
+            android:layout_height="@dimen/_50sdp"
             android:layout_marginTop="@dimen/_10sdp"
             android:scaleType="fitXY"/>
 
@@ -39,7 +39,7 @@
             android:textColor="@android:color/black" />
 
         <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/tv_temp_weather_item"
+            android:id="@+id/tv_weather_item"
             app:layout_constraintTop_toBottomOf="@id/tv_temp_hourly_item"
             android:layout_marginTop="@dimen/_2sdp"
             android:layout_width="wrap_content"

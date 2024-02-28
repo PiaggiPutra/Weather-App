@@ -38,4 +38,8 @@ dependencies {
     implementation(UtilsDependencies.sdp)
     implementation(UtilsDependencies.ssp)
 
+    /** Domain Module */
+    implementation(project(Modules.domain))
+
+    implementation(UtilsDependencies.maps)
 }
