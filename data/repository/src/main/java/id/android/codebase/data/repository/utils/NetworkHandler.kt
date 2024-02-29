@@ -52,7 +52,6 @@ fun <RequestType, ResultType> networkBoundHandling(
             }
         }
     }
-
 }
 
 suspend fun <RequestType, ResultType, ResourceType> tryToConnect(
@@ -60,11 +59,17 @@ suspend fun <RequestType, ResultType, ResourceType> tryToConnect(
     processResponse: (response: RequestType?) -> ResultType?,
     onSuccess: (data: ResultType?) -> ResourceType?,
 ): ResourceType? {
-    val requestResult = callApi.invoke()
-    with(requestResult) {
-        val result = processResponse(body())
-        return onSuccess(result)
+
+    return try {
+        val requestResult = callApi.invoke()
+        with(requestResult) {
+            val result = processResponse(body())
+            onSuccess(result)
+        }
+    } catch (e:Exception){
+        onSuccess(null)
     }
+
 
 
 }

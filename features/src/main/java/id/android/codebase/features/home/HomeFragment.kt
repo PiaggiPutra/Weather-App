@@ -4,6 +4,10 @@ import android.Manifest
 import android.content.Context
 import android.content.pm.PackageManager
 import android.location.Location
+import android.net.ConnectivityManager
+import android.net.NetworkCapabilities
+import android.os.Build
+import android.view.View
 import android.widget.Toast
 import androidx.core.content.ContextCompat
 import com.google.android.gms.location.FusedLocationProviderClient
@@ -33,10 +37,36 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>() {
     }
 
     override fun main() {
+        checkConnection()
         hideActionBar()
         getLocation()
         initView()
         setupObserver()
+    }
+
+    private fun checkConnection(){
+        binding?.apply {
+            if (!isOnline()){
+                tvWarning.visibility = View.VISIBLE
+            }else{
+                tvWarning.visibility = View.GONE
+            }
+        }
+    }
+
+    private fun isOnline(): Boolean {
+        val cmg = requireContext().getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+            cmg.getNetworkCapabilities(cmg.activeNetwork)?.let { networkCapabilities ->
+                return networkCapabilities.hasTransport(NetworkCapabilities.TRANSPORT_CELLULAR)
+                        || networkCapabilities.hasTransport(NetworkCapabilities.TRANSPORT_WIFI)
+            }
+        } else {
+            return cmg.activeNetworkInfo?.isConnectedOrConnecting == true
+        }
+
+        return false
     }
 
     override fun onAttach(context: Context) {
@@ -48,6 +78,11 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>() {
         binding?.apply {
             rvWeatherHourly.adapter = forecastWeatherAdapter
             rvWeatherDaily.adapter = forecastDailyWeatherAdapter
+            swipeRefresh.setOnRefreshListener {
+                checkConnection()
+                getLocation()
+                swipeRefresh.isRefreshing = false
+            }
         }
     }
 

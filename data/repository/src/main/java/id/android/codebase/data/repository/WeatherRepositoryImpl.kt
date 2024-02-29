@@ -3,14 +3,12 @@ package id.android.codebase.data.repository
 import id.android.codebase.data.local.dao.ForecastDao
 import id.android.codebase.data.local.dao.WeatherDao
 import id.android.codebase.data.model.ForecastData
-import id.android.codebase.data.model.response.ForecastResponse
 import id.android.codebase.data.model.WeatherData
 import id.android.codebase.data.model.response.WeatherResponse
 import id.android.codebase.data.remote.ApiDataSource
 import id.android.codebase.data.repository.utils.getFlow
 import id.android.codebase.data.repository.utils.networkBoundHandling
 import id.android.codebase.domain.repository.WeatherRepository
-import id.android.codebase.domain.state.WeatherUIState
 import id.android.codebase.domain.utils.Resource
 import kotlinx.coroutines.flow.Flow
 

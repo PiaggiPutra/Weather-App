@@ -32,7 +32,7 @@ class HomeViewModel(
         latitude = lat
         longitude = lon
         viewModelScope.launch(appDispatchers.io) {
-            useCase.getCurrentWeather("", lon).collect(::onCollectData)
+            useCase.getCurrentWeather(lat, lon).collect(::onCollectData)
         }
     }
 
