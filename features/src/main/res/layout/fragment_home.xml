@@ -59,7 +59,7 @@
                     app:layout_constraintTop_toBottomOf="@id/tv_app_name" />
 
                 <androidx.cardview.widget.CardView
-                    android:id="@+id/cardView"
+                    android:id="@+id/card_view"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="@dimen/_8sdp"
@@ -67,7 +67,8 @@
                     app:cardBackgroundColor="@color/bg_color"
                     app:cardCornerRadius="@dimen/_16sdp"
                     app:cardElevation="@dimen/_4sdp"
-                    app:layout_constraintTop_toBottomOf="@id/tv_warning">
+                    app:layout_constraintTop_toBottomOf="@id/tv_warning"
+                    app:layout_constraintBottom_toBottomOf="parent">
 
                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:layout_width="match_parent"
