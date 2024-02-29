@@ -23,9 +23,9 @@ class WeatherUseCase(
                     emit(
                         WeatherUIState.ContentCurrentWeather(
                             city = data?.name.orEmpty(),
-                            temp = formatTempToCelsius(
-                                data?.temp ?: 0.0
-                            ),
+                            temp = if (data?.temp != null) formatTempToCelsius(
+                                data.temp
+                            ) else "",
                             weatherDescription = data?.weather.orEmpty()
                         )
                     )
