@@ -1,4 +1,4 @@
-package id.android.codebase.data.model
+package id.android.codebase.data.model.response
 
 
 import com.google.gson.annotations.SerializedName

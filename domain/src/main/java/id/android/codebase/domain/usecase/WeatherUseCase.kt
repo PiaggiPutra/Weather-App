@@ -24,9 +24,9 @@ class WeatherUseCase(
                         WeatherUIState.ContentCurrentWeather(
                             city = data?.name.orEmpty(),
                             temp = formatTempToCelsius(
-                                data?.main?.temp ?: 0.0
+                                data?.temp ?: 0.0
                             ).toString() + CELSIUS_FORMAT,
-                            weatherDescription = data?.weather?.get(0)?.main.orEmpty()
+                            weatherDescription = data?.weather.orEmpty()
                         )
                     )
                 }
@@ -40,20 +40,20 @@ class WeatherUseCase(
                 Resource.Status.LOADING -> emit(WeatherUIState.Loading)
                 Resource.Status.ERROR -> emit(WeatherUIState.Error)
                 Resource.Status.SUCCESS -> {
-                    val data = it.data?.list
+                    val data = it.data
                     val groupByDay = data?.groupBy {dataGroup ->
                         stringToDate(dataGroup.dtTxt).day
                     }
                     val listData = ArrayList<WeatherUIState.ItemContentForecastWeather>()
-                    groupByDay?.get(1)?.forEach { dataHourly ->
+                    groupByDay?.get(0)?.forEach { dataHourly ->
                         listData.add(
                             WeatherUIState.ItemContentForecastWeather(
                                 time = dataHourly.dtTxt.split(" ").last(),
                                 temp = formatTempToCelsius(
-                                    dataHourly.main.temp
+                                    dataHourly.temp
                                 ).toString() + CELSIUS_FORMAT,
-                                icon = dataHourly.weather[0].icon,
-                                weatherDescription = dataHourly.weather[0].main
+                                icon = dataHourly.icon,
+                                weatherDescription = dataHourly.weather
                             )
                         )
                     }

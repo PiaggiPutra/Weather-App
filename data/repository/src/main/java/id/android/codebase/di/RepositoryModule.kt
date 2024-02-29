@@ -8,5 +8,5 @@ import org.koin.dsl.module
 
 val repositoryModule = module {
     factory { AppDispatchers(Dispatchers.Main, Dispatchers.IO) }
-    factory<WeatherRepository> { WeatherRepositoryImpl(get()) }
+    factory<WeatherRepository> { WeatherRepositoryImpl(get(), get(), get()) }
 }

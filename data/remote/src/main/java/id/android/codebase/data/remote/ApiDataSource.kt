@@ -1,7 +1,7 @@
 package id.android.codebase.data.remote
 
-import id.android.codebase.data.model.ForecastResponse
-import id.android.codebase.data.model.WeatherResponse
+import id.android.codebase.data.model.response.ForecastResponse
+import id.android.codebase.data.model.response.WeatherResponse
 import retrofit2.Response
 
 class ApiDataSource(private val apiService: ApiService) {
