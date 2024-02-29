@@ -44,18 +44,19 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>() {
         setupObserver()
     }
 
-    private fun checkConnection(){
+    private fun checkConnection() {
         binding?.apply {
-            if (!isOnline()){
+            if (!isOnline()) {
                 tvWarning.visibility = View.VISIBLE
-            }else{
+            } else {
                 tvWarning.visibility = View.GONE
             }
         }
     }
 
     private fun isOnline(): Boolean {
-        val cmg = requireContext().getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+        val cmg =
+            requireContext().getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
             cmg.getNetworkCapabilities(cmg.activeNetwork)?.let { networkCapabilities ->
@@ -74,7 +75,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>() {
         fusedLocationClient = LocationServices.getFusedLocationProviderClient(requireContext())
     }
 
-    private fun initView(){
+    private fun initView() {
         binding?.apply {
             rvWeatherHourly.adapter = forecastWeatherAdapter
             rvWeatherDaily.adapter = forecastDailyWeatherAdapter
@@ -89,14 +90,14 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>() {
     override fun setupObserver() {
         viewModel.apply {
             forecastWeatherData.observe(viewLifecycleOwner) {
-                if (!it.isNullOrEmpty()){
+                if (!it.isNullOrEmpty()) {
                     forecastWeatherAdapter.submitList(it.toList())
                     forecastWeatherAdapter.notifyDataSetChanged()
                 }
             }
 
             forecastDailyWeatherData.observe(viewLifecycleOwner) {
-                if (!it.isNullOrEmpty()){
+                if (!it.isNullOrEmpty()) {
                     forecastDailyWeatherAdapter.submitList(it.toList())
                     forecastDailyWeatherAdapter.notifyDataSetChanged()
                 }
@@ -141,10 +142,18 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>() {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
         if (requestCode == locationPermissionCode) {
             if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                Toast.makeText(requireContext(), getString(R.string.text_permission_granted), Toast.LENGTH_SHORT).show()
+                Toast.makeText(
+                    requireContext(),
+                    getString(R.string.text_permission_granted),
+                    Toast.LENGTH_SHORT
+                ).show()
                 getLocation()
             } else {
-                Toast.makeText(requireContext(), getString(R.string.text_permission_denied), Toast.LENGTH_SHORT).show()
+                Toast.makeText(
+                    requireContext(),
+                    getString(R.string.text_permission_denied),
+                    Toast.LENGTH_SHORT
+                ).show()
             }
         }
     }

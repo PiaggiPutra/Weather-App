@@ -7,8 +7,8 @@ import id.android.codebase.common.base.BaseViewModel
 import id.android.codebase.data.repository.AppDispatchers
 import id.android.codebase.domain.state.WeatherUIState
 import id.android.codebase.domain.usecase.WeatherUseCase
-import kotlinx.coroutines.launch
 import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.launch
 
 class HomeViewModel(
     private val appDispatchers: AppDispatchers,
@@ -17,10 +17,12 @@ class HomeViewModel(
     private val _contentCurrentWeather = MutableLiveData<WeatherUIState.ContentCurrentWeather>()
     val contentCurrentWeather: LiveData<WeatherUIState.ContentCurrentWeather> get() = _contentCurrentWeather
 
-    private val _forecastWeatherData = MutableLiveData(mutableListOf<WeatherUIState.ItemContentForecastWeather>())
+    private val _forecastWeatherData =
+        MutableLiveData(mutableListOf<WeatherUIState.ItemContentForecastWeather>())
     val forecastWeatherData: LiveData<MutableList<WeatherUIState.ItemContentForecastWeather>> get() = _forecastWeatherData
 
-    private val _forecastDailyWeatherData = MutableLiveData(mutableListOf<WeatherUIState.ItemDailyContentForecastWeather>())
+    private val _forecastDailyWeatherData =
+        MutableLiveData(mutableListOf<WeatherUIState.ItemDailyContentForecastWeather>())
     val forecastDailyWeatherData: LiveData<MutableList<WeatherUIState.ItemDailyContentForecastWeather>> get() = _forecastDailyWeatherData
 
     private val _isLoading = MutableLiveData(false)
@@ -28,7 +30,7 @@ class HomeViewModel(
     var latitude = ""
     var longitude = ""
 
-    fun getCurrentWeather(lat:String, lon: String) {
+    fun getCurrentWeather(lat: String, lon: String) {
         latitude = lat
         longitude = lon
         viewModelScope.launch(appDispatchers.io) {

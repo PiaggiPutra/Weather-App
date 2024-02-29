@@ -1,7 +1,6 @@
 package id.android.codebase.domain.repository
 
 import id.android.codebase.data.model.ForecastData
-import id.android.codebase.data.model.response.ForecastResponse
 import id.android.codebase.data.model.WeatherData
 import id.android.codebase.data.model.response.WeatherResponse
 import id.android.codebase.domain.utils.Resource
