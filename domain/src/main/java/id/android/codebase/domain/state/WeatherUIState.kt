@@ -12,7 +12,8 @@ sealed class WeatherUIState {
     ) : WeatherUIState()
 
     data class ContentForecastWeather(
-        val listData : ArrayList<ItemContentForecastWeather>
+        val listData : ArrayList<ItemContentForecastWeather>,
+        val listDaily : ArrayList<ItemDailyContentForecastWeather>
     ): WeatherUIState()
 
     data class ItemContentForecastWeather(
@@ -21,5 +22,11 @@ sealed class WeatherUIState {
         val icon: String = "",
         val weatherDescription: String = ""
     ): WeatherUIState()
+
+    data class ItemDailyContentForecastWeather (
+        val day: String = "",
+        val temp: String,
+        val weather: String
+        )
 
 }

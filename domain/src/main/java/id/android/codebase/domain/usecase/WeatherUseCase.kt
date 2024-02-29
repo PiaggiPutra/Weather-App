@@ -25,7 +25,7 @@ class WeatherUseCase(
                             city = data?.name.orEmpty(),
                             temp = formatTempToCelsius(
                                 data?.temp ?: 0.0
-                            ).toString() + CELSIUS_FORMAT,
+                            ),
                             weatherDescription = data?.weather.orEmpty()
                         )
                     )
@@ -51,21 +51,28 @@ class WeatherUseCase(
                                 time = dataHourly.dtTxt.split(" ").last(),
                                 temp = formatTempToCelsius(
                                     dataHourly.temp
-                                ).toString() + CELSIUS_FORMAT,
+                                ),
                                 icon = dataHourly.icon,
                                 weatherDescription = dataHourly.weather
                             )
                         )
                     }
-                    emit(WeatherUIState.ContentForecastWeather(listData))
+                    val dailyTemp = groupByDay?.map {dataGroup ->
+                        val sorted = dataGroup.value.sortedBy { dataSorted -> dataSorted.temp }
+                        WeatherUIState.ItemDailyContentForecastWeather(stringToDate(sorted[0].dtTxt).toString().split(" ").first(),
+                            formatTempToCelsius(sorted[0].temp),
+                            sorted[0].weather)
+                    }
+
+                    emit(WeatherUIState.ContentForecastWeather(listData, ArrayList(dailyTemp.orEmpty())))
 
                 }
             }
         }
     }
 
-    private fun formatTempToCelsius(data: Double): Int {
-        return (data - 273.15).toInt()
+    private fun formatTempToCelsius(data: Double): String {
+        return (data - 273.15).toInt().toString() + CELSIUS_FORMAT
     }
 
     private fun stringToDate(date: String): Date {

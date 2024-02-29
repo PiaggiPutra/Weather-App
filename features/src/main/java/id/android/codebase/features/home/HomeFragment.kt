@@ -11,6 +11,7 @@ import com.google.android.gms.location.LocationServices
 import id.android.codebase.common.base.BaseFragment
 import id.android.codebase.features.R
 import id.android.codebase.features.databinding.FragmentHomeBinding
+import id.android.codebase.features.home.adapter.ForecastDailyWeatherAdapter
 import id.android.codebase.features.home.adapter.ForecastWeatherAdapter
 import org.koin.android.ext.android.inject
 
@@ -25,6 +26,10 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>() {
 
     private val forecastWeatherAdapter by lazy {
         ForecastWeatherAdapter()
+    }
+
+    private val forecastDailyWeatherAdapter by lazy {
+        ForecastDailyWeatherAdapter()
     }
 
     override fun main() {
@@ -42,6 +47,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>() {
     private fun initView(){
         binding?.apply {
             rvWeatherHourly.adapter = forecastWeatherAdapter
+            rvWeatherDaily.adapter = forecastDailyWeatherAdapter
         }
     }
 
@@ -51,6 +57,13 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>() {
                 if (!it.isNullOrEmpty()){
                     forecastWeatherAdapter.submitList(it.toList())
                     forecastWeatherAdapter.notifyDataSetChanged()
+                }
+            }
+
+            forecastDailyWeatherData.observe(viewLifecycleOwner) {
+                if (!it.isNullOrEmpty()){
+                    forecastDailyWeatherAdapter.submitList(it.toList())
+                    forecastDailyWeatherAdapter.notifyDataSetChanged()
                 }
             }
         }

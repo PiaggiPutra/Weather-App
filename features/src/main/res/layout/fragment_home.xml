@@ -13,7 +13,8 @@
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:scrollbars="none">
+        android:scrollbars="none"
+        android:fillViewport="true">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -41,11 +42,12 @@
                 app:cardBackgroundColor="@color/bg_color"
                 app:cardCornerRadius="@dimen/_16sdp"
                 app:cardElevation="@dimen/_4sdp"
-                app:layout_constraintTop_toBottomOf="@id/tv_app_name">
+                app:layout_constraintTop_toBottomOf="@id/tv_app_name"
+                >
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
                     android:paddingVertical="@dimen/_10sdp">
 
                     <androidx.appcompat.widget.AppCompatTextView
@@ -115,32 +117,32 @@
                         app:layout_constraintTop_toBottomOf="@id/tv_title_hourly"
                         tools:listitem="@layout/item_weather_hourly" />
 
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tv_title_daily"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:background="@drawable/bg_border"
+                        android:padding="@dimen/_5sdp"
+                        android:text="@string/text_title_daily"
+                        android:textColor="@android:color/black"
+                        android:textStyle="bold"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="1.0"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/rv_weather_hourly" />
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rv_weather_daily"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:clipToPadding="false"
+                        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                        app:layout_constraintTop_toBottomOf="@id/tv_title_daily"
+                        tools:listitem="@layout/item_weather_daily" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </androidx.cardview.widget.CardView>
-
-            <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/tv_title_other_cities"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/_12sdp"
-                android:layout_marginTop="@dimen/_20sdp"
-                android:text="@string/title_other_cities"
-                android:textColor="@android:color/black"
-                android:textSize="@dimen/_15ssp"
-                android:textStyle="bold"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/cardView" />
-
-            <androidx.recyclerview.widget.RecyclerView
-                app:layout_constraintTop_toBottomOf="@id/tv_title_other_cities"
-                android:id="@+id/rv_weather_other_city"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                tools:listitem="@layout/item_weather_other_city"
-                android:clipToPadding="false"
-                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                android:paddingHorizontal="@dimen/_10sdp"/>
-
             <ProgressBar
                 android:id="@+id/progress_bar"
                 style="@style/Base.Widget.AppCompat.ProgressBar"

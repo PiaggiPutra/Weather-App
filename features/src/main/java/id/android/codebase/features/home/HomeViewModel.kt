@@ -20,6 +20,9 @@ class HomeViewModel(
     private val _forecastWeatherData = MutableLiveData(mutableListOf<WeatherUIState.ItemContentForecastWeather>())
     val forecastWeatherData: LiveData<MutableList<WeatherUIState.ItemContentForecastWeather>> get() = _forecastWeatherData
 
+    private val _forecastDailyWeatherData = MutableLiveData(mutableListOf<WeatherUIState.ItemDailyContentForecastWeather>())
+    val forecastDailyWeatherData: LiveData<MutableList<WeatherUIState.ItemDailyContentForecastWeather>> get() = _forecastDailyWeatherData
+
     private val _isLoading = MutableLiveData(false)
     val isLoading: LiveData<Boolean> get() = _isLoading
     var latitude = ""
@@ -29,7 +32,7 @@ class HomeViewModel(
         latitude = lat
         longitude = lon
         viewModelScope.launch(appDispatchers.io) {
-            useCase.getCurrentWeather(lat, lon).collect(::onCollectData)
+            useCase.getCurrentWeather("", lon).collect(::onCollectData)
         }
     }
 
@@ -68,6 +71,7 @@ class HomeViewModel(
             is WeatherUIState.ContentForecastWeather -> {
                 _isLoading.postValue(false)
                 _forecastWeatherData.postValue(data.listData.toMutableList())
+                _forecastDailyWeatherData.postValue(data.listDaily.toMutableList())
             }
 
             is WeatherUIState.Error -> {
